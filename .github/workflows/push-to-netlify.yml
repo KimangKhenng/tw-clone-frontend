@@ -6,6 +6,7 @@ on:
       - main
 jobs:
   build:
+    environment: prod
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
@@ -20,6 +21,6 @@ jobs:
           enable-commit-comment: true
           overwrites-pull-request-comment: true
         env:
-          NETLIFY_AUTH_TOKEN: ${{ prod.secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ prod.secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 1
