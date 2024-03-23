@@ -21,8 +21,8 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: prod
-          VUE_APP_ENV_GOOGLE_CALLBACK: ${{ secrets.VUE_APP_ENV_GOOGLE_CALLBACK }}
-          VUE_APP_ENV_GOOGLE_CLIENT_ID: ${{ secrets.VUE_APP_ENV_GOOGLE_CLIENT_ID }}
+          VUE_APP_ENV_GOOGLE_CALLBACK: ${{ vars.VUE_APP_ENV_GOOGLE_CALLBACK }}
+          VUE_APP_ENV_GOOGLE_CLIENT_ID: ${{ vars.VUE_APP_ENV_GOOGLE_CLIENT_ID }}
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
