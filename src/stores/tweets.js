@@ -10,7 +10,7 @@ export const useTweetsStore = defineStore('tweets', {
         async fetchTweets() {
             const authStore = useAuthStore()
             try {
-                const response = await axios.get('/api/tweets', {
+                const response = await axios.get(process.env.VUE_APP_ENV_SERVER + '/api/tweets', {
                     headers: {
                         'Authorization': `Bearer ${authStore.token}`
                     }
@@ -23,7 +23,7 @@ export const useTweetsStore = defineStore('tweets', {
         async addTweet(text) {
             const authStore = useAuthStore()
             try {
-                const response = await axios.post('/api/tweets', {
+                const response = await axios.post(process.env.VUE_APP_ENV_SERVER + '/api/tweets', {
                     text: text
                 }, {
                     headers: {
