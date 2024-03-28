@@ -24,6 +24,8 @@ jobs:
           VUE_APP_ENV_GOOGLE_CALLBACK: ${{ vars.VUE_APP_ENV_GOOGLE_CALLBACK }}
           VUE_APP_ENV_GOOGLE_CLIENT_ID: ${{ vars.VUE_APP_ENV_GOOGLE_CLIENT_ID }}
           VUE_APP_ENV_SERVER: ${{ vars.VUE_APP_ENV_SERVER }}
+      - name: Write redirect file
+        run: cd dist && echo '/*  /index.html  200' > _redirects
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
